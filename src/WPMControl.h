@@ -64,9 +64,9 @@ public:
     /// <summary>
     /// Stop motor
     /// </summary>
-    /// <param name="acceleration">64 - 3200</param>
+    /// <param name="deceleration">64 - 3200</param>
     /// <returns></returns>
-    bool stopMotor(int acceleration);
+    bool stopMotor(int deceleration);
 
     void setDbgStream(Stream &stream);
 

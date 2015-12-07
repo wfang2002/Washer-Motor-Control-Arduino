@@ -5,7 +5,8 @@ library to control the speed of a Whirlpool Duet washing machine
 motor (3 phase 820W, P/N 8182793) through Motor Control Unit 
 (MCU P/N 8181693).
 
-An half-duplex adapter (http://www.code2control.com/2014/01/uart-full-duplex-to-half-duplex-converter-for-motor-control-unit-8181693/) 
+An half-duplex adapter:
+http://www.code2control.com/2014/01/uart-full-duplex-to-half-duplex-converter-for-motor-control-unit-8181693
 is needed for the example. 
 
 Connect Arduino to half-duplex adapter:
@@ -33,6 +34,7 @@ bool motorRunning = false;
 
 int speed = 500; // motor target speed (RPM), valid range: 300 - 1200
 int acceleration = 1000; // speed acceleration rate, valid range: 64 - 3200
+int deceleration = 1000; // speed deceleration rate, valid range: 64 - 3200
 
 unsigned long prtInterval = millis();
 unsigned long runtime;
@@ -60,6 +62,8 @@ void setup()
         
         runtime = millis();
         debugStream.println("Motor shall start running");
+    } else {
+        debugStream.println("Failed to connect to motor control unit. Please check wire connection.");
     }
 
 }
@@ -70,7 +74,7 @@ void loop()
     
     if (motorRunning)
     {
-        // must call DoTask in loop to allow driver process commands and response
+        // must call doTask in loop to allow driver process commands and response
          wpmcontrol.doTask();
 
          if ((millis() - prtInterval) > 2000)
@@ -83,9 +87,9 @@ void loop()
             debugStream.println(wpmcontrol.getSpeed());
          }
 
-         // let motor run for 60 seconds the stop
+         // let motor run for 60 seconds then stop it
          if (millis() - runtime > 60000) {
-            wpmcontrol.stopMotor(acceleration);
+            wpmcontrol.stopMotor(deceleration);
             wpmcontrol.disconnect();
             motorRunning = false;
             debugStream.println("Motor shall stop running");

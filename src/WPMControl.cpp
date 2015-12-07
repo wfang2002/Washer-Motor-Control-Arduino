@@ -213,9 +213,9 @@ bool WPMControl::setSpeed(int speed, int acceleration, Direction direction)
 /// <summary>
 /// Stop motor
 /// </summary>
-/// <param name="acceleration">64 - 3200</param>
+/// <param name="deceleration">64 - 3200</param>
 /// <returns></returns>
-bool WPMControl::stopMotor(int acceleration)
+bool WPMControl::stopMotor(int deceleration)
 {
     char buffer[10];
 
@@ -224,12 +224,12 @@ bool WPMControl::stopMotor(int acceleration)
         return false;
     }
 
-    if (acceleration < 64) acceleration = 64;
-    if (acceleration > 3200) acceleration = 3200;
+    if (deceleration < 64) deceleration = 64;
+    if (deceleration > 3200) deceleration = 3200;
 
     String cmd = "pmsb0000";
 
-    sprintf(buffer, "%03x", acceleration);
+    sprintf(buffer, "%03x", deceleration);
     cmd += buffer;
 
     return executeCommand(cmd);
