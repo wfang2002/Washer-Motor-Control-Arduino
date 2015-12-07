@@ -1,4 +1,24 @@
+/*
+WPMControl example
+This example for the WPMControl shows how to use the WPMControl
+library to control the speed of a Whirlpool Duet washing machine
+motor (3 phase 820W, P/N 8182793) through Motor Control Unit 
+(MCU P/N 8181693).
 
+An half-duplex adapter (http://www.code2control.com/2014/01/uart-full-duplex-to-half-duplex-converter-for-motor-control-unit-8181693/) 
+is needed for the example. 
+
+Connect Arduino to half-duplex adapter:
+Arduino pin  ----   half-duplex adapter pin
+   0 (RX)    ----       3 (RX)
+   1 (TX)    ----       2 (TX)
+   GND       ----       4 (GND)
+   5V        ----       1 (VCC)
+
+This example code is part of the public domain
+https://github.com/wfang2002/Washer-Motor-Control-Arduino
+
+*/
 
 #include <SoftwareSerial.h>
 #include <WPMControl.h>
