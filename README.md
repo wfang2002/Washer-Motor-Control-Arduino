@@ -5,8 +5,8 @@ Arduino library to control Whirlpool Duet washing machine motor (3 phase 820W, P
 
 An UART full-duplex to half-duplex adapter is required to connect Arduino hardware serial port to Washer MCU [UART FULL DUPLEX TO HALF DUPLEX CONVERTER FOR MOTOR CONTROL UNIT 8181693](http://www.code2control.com/category/garage-fun/)
 
-Arduino hardware serial to half-duplex adapter wiring:
-=======
+##Arduino hardware serial to half-duplex adapter wiring:
+
 ```bash
 Arduino pin  ----   half-duplex adapter pin
    0 (RX)    ----       3 (RX)
@@ -15,12 +15,11 @@ Arduino pin  ----   half-duplex adapter pin
    5V        ----       1 (VCC)
 ```
 
-API calls example:
-=======
+##API calls example:
 
 ```bash
 
-    // initialize serial steam. could be hardware serial or software searial.
+    // initialize serial stream. could be hardware serial or software searial.
     // here shows using hardware serial
     Serial.begin(WPMCONTROL_SERIAL_BAUD, WPMCONTROL_SERIAL_CFG);
 
