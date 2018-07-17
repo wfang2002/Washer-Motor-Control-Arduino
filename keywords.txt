@@ -12,13 +12,13 @@ WPMControl	KEYWORD3
 # Methods and Functions (KEYWORD2)
 #######################################
 
-WPMControl  KEYWORD2
+WPMControl	KEYWORD2
 connect	KEYWORD2
 disconnect	KEYWORD2
-setMotorSpeed   KEYWORD2
-stopMotor   KEYWORD2
-getSpeed    KEYWORD2
-getState    KEYWORD2
+setMotorSpeed	KEYWORD2
+stopMotor	KEYWORD2
+getSpeed	KEYWORD2
+getState	KEYWORD2
 
 ######################################
 # Instances (KEYWORD2)
@@ -28,6 +28,6 @@ getState    KEYWORD2
 #######################################
 # Constants (LITERAL1)
 #######################################
-DIR_CW LITERAL1
-DIR_CCW LITERAL1
+DIR_CW	LITERAL1
+DIR_CCW	LITERAL1
 
