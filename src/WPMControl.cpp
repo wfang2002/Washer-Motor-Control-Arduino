@@ -115,7 +115,8 @@ bool WPMControl::executeCommand(String cmd)
     // receives no response
     if (resp == "")
     {
-        _dbg->println("WPMControl: No response!"); 
+        if (_dbg)
+            _dbg->println("WPMControl: No response!");
         _busy = false;
         return false;
     }
